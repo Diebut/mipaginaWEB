@@ -1,0 +1,120 @@
+body{
+    background: rgba(0, 0, 0, .9);
+    margin: 0;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+}
+.header::after{
+    content: '';/* valor vacio */
+    height: 100vh;
+    width: 100%;
+    background-image: url(../img/nfspeed.jpg); /* imagen de fondo de nfspeed */
+    background-size: cover;/* maximo tamaño del elemento */
+    background-repeat: no-repeat;/* la imagen abarque bien y no se repita luego */
+    background-position: center;/* tamaño de la imagen */
+    display: inline-block;/* imagen del auto entre medio */
+    filter: blur(10px)/* distorcionar la imagen */;
+    -webkit-filter: blur(10px);/* compruebe q esta en chrome pueda ser soportado este elemento, se puede agregar los otros prefijos para los otros navegadores */
+    transition: all 1000ms; /* para q el cambio no sea tan brusco el movimiento */
+}
+.header:hover::after{
+    /* alteramos el fondo el background */
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+}
+.header:hover .header-content{
+    filter: blur(2px);/* alteramos el blur */
+    -webkit-filter: blur(2px);
+}
+.header-content{
+    position: absolute;/* para q el contenido no este en bloque uno dentro del otro */
+    z-index: 1;/* ordenamo para q pase adelante */
+    top: 10%;/* para q este centrado */
+    left: 50%;/* la mitad del contenido */
+    margin-top: 105px;
+    margin-left: -145px;
+    text-align: center;/* sirve para el texto q esta dentro del contenido */
+    width: 300px;
+    height: 350px;
+    transition: all 1000ms;
+}
+.header-content .rueda3{
+    height: 200px;
+    width: 200px;
+}
+.title{
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+}
+.text{
+    line-height: 1.7;
+    margin-top: 1rem;
+}
+.container{
+    max-width: 960px;
+    margin: auto;
+    overflow: hidden;
+    padding: 4rem 1rem;
+}
+.grid-3{
+    display: grid;/* dividir el contenido */
+    grid-template-columns: 1fr 1fr 1fr;/* para dividir en 3 columnas */
+    grid-gap: 20px; /* espaciado entre columnas */
+}
+.grid-2{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* es lo mismo q el de arriba dividir las columnas */
+    grid-gap: 20px;
+}
+.text-center{
+    text-align: center;
+    margin: auto;
+}
+.bg-light{
+    background: #fff;
+    color: #333;
+}
+.bg-dark{
+    background: #2f3542;
+    color: #fff;
+}
+.services{
+    padding: 2rem 0;/* titulo */
+}
+footer{
+    padding: 2.2rem;
+}
+footer p{
+    margin: 0;
+}
+
+@media(max-width: 560px){
+    .header::after{
+        height: 50vh;
+    }
+    .header-content{
+        top: 5%;
+        margin-top: 5px;
+    }
+    .header-content .rueda3{
+        height: 140px;
+        width: 140px;
+    }
+    .header-content .text{
+        display: none; /* ocultamos el texto en el celular */
+    }
+    .grid-3, .grid-2{
+        grid-template-columns: 1fr;
+    }
+    .services{
+        padding: 1rem 1rem; /* espaciados */
+    }
+}
+@media(max-height: 500px ){
+    .header-content .text{
+        display: none;
+    }
+    .header-content{
+        top: 0;
+    }
+}
